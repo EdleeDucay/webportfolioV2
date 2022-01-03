@@ -1,0 +1,22 @@
+[
+        {
+            "menuTitle": "Home",
+            "bookmark": "#Home"
+        },
+        {
+            "menuTitle": "About",
+            "bookmark": "#About"
+        },
+        {
+            "menuTitle": "Projects",
+            "bookmark": "#Projects"
+        },
+        {
+            "menuTitle": "Experience",
+            "bookmark": "#Experience"
+        },
+        {
+            "menuTitle": "Contact",
+            "bookmark": "#Contact"
+        }
+]
