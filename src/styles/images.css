@@ -1,0 +1,13 @@
+img {
+    min-width: 300px;
+    max-width: 300px;
+    height: 'auto';
+
+}
+
+@media screen and (max-width: 700px) {
+    .image {
+        text-align: center;
+        justify-content: center;
+    }
+  }

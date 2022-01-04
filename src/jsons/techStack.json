@@ -1,0 +1,29 @@
+[
+    {
+        "tech": "JavaScript" 
+    },
+    {
+        "tech": "Python" 
+    },
+    {
+        "tech": "React.js" 
+    },
+    {
+        "tech": "Django" 
+    },
+    {
+        "tech": "PostgreSQL" 
+    },
+    {
+        "tech": "MySQL" 
+    },
+    {
+        "tech": "AWS" 
+    },
+    {
+        "tech": "Firebase" 
+    },
+    {
+        "tech": "Docker" 
+    }
+]

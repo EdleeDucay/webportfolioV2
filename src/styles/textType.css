@@ -1,0 +1,37 @@
+h1 {
+    font-size: 115px;
+    margin-bottom: 0;
+    color: #ccd6f6;
+}
+
+.static-text{
+    font-size: 60px;
+    font-weight: 400;
+    display: inline-block;
+    padding-right: 15px;
+    color: #8892b0;
+}
+
+.dynamic-text {
+    margin-top: 0;
+    font-size: 60px;
+    display: inline-block;
+    color: royalblue
+
+}
+
+@media only screen and (max-width: 700px) {
+    .dynamic-text {
+        padding-left: 0px;
+        font-size: 50px;
+    }
+
+    .static-text {
+        display: block;
+        font-size: 50px;
+        
+    }
+    h1 {
+        font-size: 80px;
+    }
+  }

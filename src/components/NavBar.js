@@ -4,16 +4,12 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import menuItems from '../jsons/menuItems.json'
 import { Drawer, List, ListItem, ListItemText, useScrollTrigger } from '@mui/material';
 import { Slide } from '@mui/material';
+import {useStyles} from '../styles/styles'
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -29,8 +25,8 @@ function HideOnScroll(props) {
   );
 }
 
-
 export default function NavBar(props) {
+  const classes = useStyles()
   const [drawer, setDrawer] = React.useState(false)
 
   const toggleDrawer = (open) => (event) => {
@@ -41,10 +37,6 @@ export default function NavBar(props) {
     setDrawer(open)
   }
 
-  const handleBookmarks = (bookmark) => {
-    console.log('here', bookmark)
-  }
-
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Box
@@ -52,15 +44,17 @@ export default function NavBar(props) {
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
+
     >
       <List>
         {menuItems.map(menuItem => {
                 const {menuTitle, bookmark} = menuItem
                 return (
-                  <ListItem button key={menuTitle}>
-                  <ListItemText primary={menuTitle} onClick={() => handleBookmarks(bookmark)}/>
+                  <ListItem  key={menuTitle} className={classes.navHover}>
+                    <a href={bookmark} className={classes.navHover}>
+                      {menuTitle}
+                    </a>
                   </ListItem>
-
                 )
               })}
       </List>     
@@ -68,10 +62,14 @@ export default function NavBar(props) {
   );      
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box 
+      sx={{ flexGrow: 1 }}
+    >
         <HideOnScroll {...props}>
-      <AppBar >
-        <Toolbar>
+      <AppBar 
+        className={classes.nav}
+      >
+        <Toolbar >
           <Typography
             variant="h6"
             noWrap
@@ -86,13 +84,13 @@ export default function NavBar(props) {
           
             {menuItems.map(menuItem => {
               const {menuTitle, bookmark} = menuItem
-              return (
-                <MenuItem>
-                <Typography onClick={() => handleBookmarks(bookmark)}>
-                  {menuTitle}
-                </Typography>
-                </MenuItem>
 
+              return (
+                <MenuItem className={classes.navHover}>
+                <a href={bookmark} className={classes.navHover}>
+                  {menuTitle}
+                </a>
+                </MenuItem>
               )
             })}
             
@@ -117,9 +115,11 @@ export default function NavBar(props) {
       <Drawer
               anchor={'right'}
               open={drawer}
+              classes={{ paper: classes.paper}}
               onClose={toggleDrawer(false)}>
                 {renderMobileMenu}
       </Drawer>
+      <Toolbar/>
 
     </Box>
   );
