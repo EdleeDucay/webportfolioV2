@@ -28,6 +28,17 @@ export const useStyles = makeStyles({
         border: 0,
         height: 'auto',
     },
+    logo: {
+        width: '75px',
+        height: 'auto',
+        marginTop: '5px',
+        cursor: 'pointer',
+        transition: '0.1s',
+        opacity: 1,
+        '&:hover': {
+            opacity: 0.8,
+        }
+    },
     // Styling for the nav drawer (mobile)
     paper: {
         backgroundColor: '#181A18',

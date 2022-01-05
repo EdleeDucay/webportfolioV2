@@ -10,6 +10,7 @@ import menuItems from '../jsons/menuItems.json'
 import { Drawer, List, ListItem, ListItemText, useScrollTrigger } from '@mui/material';
 import { Slide } from '@mui/material';
 import {useStyles} from '../styles/styles'
+import logo from '../assets/logo.png'
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -76,7 +77,7 @@ export default function NavBar(props) {
             component="div"
             sx={{ ml: 2,display: { xs: 'block', sm: 'block' } }}
           >
-            Edlee Ducay
+            <a href="#Home"><img src={logo} alt="N/A" className={classes.logo}/></a>
           </Typography>
          
           <Box sx={{ flexGrow: 1 }} />

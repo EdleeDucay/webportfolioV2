@@ -9,6 +9,7 @@ import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Experience from '../components/Experience'
 import Contact from '../components/Contact'
+import {Fade, Flip} from 'react-reveal';
 
 function ScrollTop(props) {
     const { children, window } = props;
@@ -21,7 +22,7 @@ function ScrollTop(props) {
   
     const handleClick = (event) => {
       const anchor = (event.target.ownerDocument || document).querySelector(
-        '#back-to-top-anchor',
+        '#Home',
       );
 
       if (anchor) {
@@ -51,13 +52,14 @@ export default function HomePage(props) {
     return (
         <div className={classes.root}>
           <NavBar />
-          <div id="back-to-top-anchor"/>
+
+          <div id="Home"/>
           <div className={classes.root}>
-            <Intro/>
-            <About/>
-            <Projects/>
-            <Experience/>
-            <Contact/>
+            <Fade><Intro/></Fade>
+            <Fade><About/></Fade>
+            <Fade><Projects/></Fade>
+            <Fade><Experience/></Fade>
+            <Fade><Contact/></Fade>
           </div>
 
           <footer className={classes.footer}>
