@@ -18,7 +18,7 @@ export const useStyles = makeStyles({
         background: '#181A18',
         color: '#ccd6f6',
         fontFamily: 'Open Sans',
-        fontWeight: 'Extra-bold 800',
+        fontWeight: 'bold',
         scrollBehavior: 'smooth',
 
     },
@@ -37,9 +37,21 @@ export const useStyles = makeStyles({
         minHeight: '100vh',
         color: '#8892b0',
     },
+    body2: {
+        minHeight: '75vh',
+        color: '#8892b0',
+    },
+    body3: {
+        minHeight: '50vh',
+        color: '#8892b0',
+    },
     title: {
         color: '#ccd6f6',
         fontSize: '48px',
+    },
+    title2: {
+        color: 'royalblue',
+        fontSize: '32px',
     },
     button: {
         color: 'royalblue',
@@ -77,6 +89,62 @@ export const useStyles = makeStyles({
         marginTop: '2px',
         paddingLeft: '3px',
     },
+    cardTitle: {
+        color: '#ccd6f6',
+        transition: '0.2s',
+
+    },
+    card: {
+        backgroundColor: '#1E1F1E',
+        color: '#8892b0',
+        transition: '0.2s',
+        '&:hover': {
+            transform: 'translate(0, -5px)',
+            color: 'royalblue',
+            "& $cardTitle": {
+                color: 'royalblue',
+            },
+        }
+    },
+    cardIcon: {
+        textDecoration: 'none',
+        color: '#8892b0',
+        fontSize: 28,
+        paddingLeft: 15,
+        cursor: 'pointer',
+        transition: '0.1s',
+        '&:hover': {
+            color: 'royalblue',
+        }
+    },
+    link: {
+        textDecoration: 'none',
+        color: 'royalblue',
+        transition: '0.2s',
+        '&:hover': {
+            color: '#ccd6f6',
+            background: 'transparent',
+        }
+    },
+    spotlight: {
+        backgroundColor: '#1E1F1E',
+        padding: 25,
+        borderRadius: 5,
+    },
+    jobTitle1: {
+        fontWeight: 'bold',
+        color: '#ccd6f6',
+    },
+    jobTitle2: {
+        color: 'royalblue',
+        fontWeight: 'bold',
+    },
+    footer: {
+        textAlign: 'center',
+        paddingTop: '100px',
+        paddingBottom: '25px',
+        color: '#8892b0'
+    }
     
 
 })
