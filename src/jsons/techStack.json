@@ -12,7 +12,7 @@
         "tech": "Django" 
     },
     {
-        "tech": "MongoDB" 
+        "tech": "PostgreSQL" 
     },
     {
         "tech": "MySQL" 
