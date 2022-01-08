@@ -1,7 +1,7 @@
 # webportfolioV2
 ### Version 2 of my webportfolio
 
-Technology stack:
+Tech Stack:
 - React.js
 - Material Ui
 - Github API
