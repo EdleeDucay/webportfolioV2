@@ -57,7 +57,7 @@ export default function HomePage(props) {
           <div className={classes.root}>
             <Fade><Intro/></Fade>
             <Fade><About/></Fade>
-            <Fade><Projects/></Fade>
+            <Projects/>
             <Fade><Experience/></Fade>
             <Fade><Contact/></Fade>
           </div>
