@@ -1,15 +1,26 @@
 import React from 'react'
+import { useEffect } from 'react'
 import {Container, Divider, Grid, ListItemText, Typography} from '@mui/material'
 import { useStyles } from '../styles/styles'
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import experiences from "../jsons/experience.json"
+import api from '../services/api'
 
 export default function Experience() {
     const classes = useStyles()
+    const [experience, setExperience] = React.useState([])
+
+    useEffect(() => {
+        api({
+            method: 'get',
+            url: `/portfolio/experiences/${process.env.REACT_APP_USERID}`
+        }).then(function (response) {
+            setExperience(response.data)
+        })
+    }, [])
 
     function ExpCard(job) {
         return (
-            <Container className={classes.spotlight} sx={{mt: 5, mb: 5, width: {md: "50%", sm: "100%"}}}>
+            <Container className={[classes.spotlight, classes.spotlightCard]} sx={{mt: 5, mb: 5, width: {md: "50%", sm: "100%"}}}>
                 <Typography sx={{display: 'inline-flex', mr: 1}} className={classes.jobTitle1}>{job.title}</Typography>
                 <Typography sx={{display: 'inline-flex'}} className={classes.jobTitle2}>@ {job.employer}</Typography>
                 <Typography>{job.date}</Typography>
@@ -39,7 +50,7 @@ export default function Experience() {
             </Typography>
             <Divider classes={{root: classes.divider}} />
 
-            {experiences.map(job => {
+            {experience.map(job => {
                 return (
                     <ExpCard {...job}/>
                 )

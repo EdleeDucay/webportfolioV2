@@ -142,6 +142,21 @@ export const useStyles = makeStyles({
         padding: 25,
         borderRadius: 5,
     },
+    spotlightCard: {
+        backgroundColor: '#1E1F1E',
+        color: '#8892b0',
+        transition: '0.2s',
+        '&:hover': {
+            transform: 'translate(0, -5px)',
+            color: '#ccd6f6',
+            "& $jobTitle1": {
+                color: 'royalblue',
+            },
+            "& $jobTitle2": {
+                color: '#ccd6f6',
+            },
+        }
+    },
     jobTitle1: {
         fontWeight: 'bold',
         color: '#ccd6f6',
@@ -156,6 +171,4 @@ export const useStyles = makeStyles({
         paddingBottom: '25px',
         color: '#8892b0'
     }
-    
-
 })

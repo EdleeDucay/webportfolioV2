@@ -9,7 +9,8 @@ import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Experience from '../components/Experience'
 import Contact from '../components/Contact'
-import {Fade, Flip} from 'react-reveal';
+import {Fade} from 'react-reveal';
+import api from '../services/api'
 
 function ScrollTop(props) {
     const { children, window } = props;
@@ -48,6 +49,16 @@ function ScrollTop(props) {
 
 export default function HomePage(props) {
     const classes = useStyles()
+    const [about, setAbout] = React.useState({})
+
+    React.useEffect(() => {
+      api({
+          method: 'get',
+          url: `/portfolio/portfolios/${process.env.REACT_APP_USERID}`
+      }).then(function (response) {
+          setAbout(response.data)
+      })
+  }, [])
 
     return (
         <div className={classes.root}>
@@ -55,11 +66,11 @@ export default function HomePage(props) {
 
           <div id="Home"/>
           <div className={classes.root}>
-            <Fade><Intro/></Fade>
-            <Fade><About/></Fade>
+            <Fade><Intro about={about}/></Fade>
+            <Fade><About about={about}/></Fade>
             <Projects/>
             <Fade><Experience/></Fade>
-            <Fade><Contact/></Fade>
+            <Fade><Contact about={about}/></Fade>
           </div>
 
           <footer className={classes.footer}>

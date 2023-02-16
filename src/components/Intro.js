@@ -8,12 +8,13 @@ import EmailIcon from '@mui/icons-material/Email';
 import resume from '../assets/resume.pdf'
 import '../styles/textType.css'
 
-export default function Intro() {
+export default function Intro({about}) {
     const classes = useStyles();
+    const resumeUrl = `${process.env.REACT_APP_BASE_API_URL}/portfolio/resume`
  
     return (
         <Container className={classes.body} >
-            <h1 >Edlee Ducay</h1>
+            <h1 >{about.firstname} {about.lastname}</h1>
             
             <div className="static-text">I am a</div>
             <span className="dynamic-text">
@@ -46,7 +47,7 @@ export default function Intro() {
                                 aria-haspopup="true"
                                 color="inherit"
                             >
-                                <GitHubIcon className={classes.icon} onClick={() => window.open('https://github.com/EdleeDucay')} target="_blank"/>
+                                <GitHubIcon className={classes.icon} onClick={() => window.open(about.github)} target="_blank"/>
                             </IconButton>
                         </Grid>
                         <Grid key={'linkedin'} item>
@@ -57,7 +58,7 @@ export default function Intro() {
                                 aria-haspopup="true"
                                 color="inherit"
                             >
-                                <LinkedInIcon className={classes.icon} onClick={() => window.open('https://www.linkedin.com/in/edleeducay/')}/>
+                                <LinkedInIcon className={classes.icon} onClick={() => window.open(about.linkedin)}/>
                             </IconButton>
                         </Grid>
                         <Grid key={'email'} item>
@@ -68,13 +69,13 @@ export default function Intro() {
                                 aria-haspopup="true"
                                 color="inherit"
                             >
-                                <EmailIcon className={classes.icon} onClick={() => window.open('mailto:ducay@ualberta.ca')}/>
+                                <EmailIcon className={classes.icon} onClick={() => window.open(`mailto:${about.email}`)}/>
                             </IconButton>
                         </Grid>
                     </Grid>
                 </Grid>
             </Grid>
-            <Button className={classes.button} sx={{mt: 2}} onClick={() => window.open(resume)} target="_blank">
+            <Button className={classes.button} sx={{mt: 2}} onClick={() => window.open(resumeUrl)} target="_blank">
                 <Typography>
                     Check Out My Resume
                 </Typography> 

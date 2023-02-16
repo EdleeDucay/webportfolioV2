@@ -7,8 +7,9 @@ import resume from '../assets/resume.pdf'
 
 import { useStyles } from '../styles/styles'
 
-export default function Contact() {
+export default function Contact({about}) {
     const classes = useStyles()
+    const resumeUrl = `${process.env.REACT_APP_BASE_API_URL}/portfolio/resume`
 
     return (
         <Container className={classes.body3} sx={{mt: 5}} id="Contact">
@@ -20,8 +21,8 @@ export default function Contact() {
             <Container sx={{textAlign: 'center', mt: 3, width: {md: '50%', sm: '75%'}}}>
 
             <Typography>
-                Get in touch and send me an email at ducay@ualberta.ca
-                or use one of the links down below.
+                Get in touch and send me an email at {about.email} or 
+                use one of the links down below.
             </Typography>
 
             <Grid container justifyContent={'center'} spacing={1}>
@@ -33,7 +34,7 @@ export default function Contact() {
                         aria-haspopup="true"
                         color="inherit"
                     >
-                        <GitHubIcon className={classes.icon} onClick={() => window.open('https://github.com/EdleeDucay')} target="_blank"/>
+                        <GitHubIcon className={classes.icon} onClick={() => window.open(about.github)} target="_blank"/>
                     </IconButton>
                 </Grid>
                 <Grid key={'linkedin'} item>
@@ -44,7 +45,7 @@ export default function Contact() {
                         aria-haspopup="true"
                         color="inherit"
                     >
-                        <LinkedInIcon className={classes.icon} onClick={() => window.open('https://www.linkedin.com/in/edleeducay/')}/>
+                        <LinkedInIcon className={classes.icon} onClick={() => window.open(about.linkedin)}/>
                     </IconButton>
                 </Grid>
                 <Grid key={'email'} item>
@@ -55,11 +56,11 @@ export default function Contact() {
                         aria-haspopup="true"
                         color="inherit"
                     >
-                        <EmailIcon className={classes.icon} onClick={() => window.open('mailto:ducay@ualberta.ca')}/>
+                        <EmailIcon className={classes.icon} onClick={() => window.open(`mailto:${about.email}`)}/>
                     </IconButton>
                 </Grid>
             </Grid>
-            <Button className={classes.button} sx={{mt: 2}} onClick={() => window.open(resume)} target="_blank">
+            <Button className={classes.button} sx={{mt: 2}} onClick={() => window.open(resumeUrl)} target="_blank">
                 <Typography>
                     Resume
                 </Typography> 

@@ -6,7 +6,7 @@ img {
 
 }
 
-.cacaImg {
+.projectSpotlightImage {
     /* min-width: 600px; */
     width: 100%;
     max-width: 100%;
@@ -16,7 +16,7 @@ img {
     transition: 0.3s;
     cursor: pointer;
 }
-.cacaImg:hover {
+.projectSpotlightImage:hover {
     filter: sepia(0%) saturate(100%) brightness(100%);
 }
 @media screen and (max-width: 700px) {
